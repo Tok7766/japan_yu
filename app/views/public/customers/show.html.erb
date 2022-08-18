@@ -1,2 +1,39 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<div class='container mt-3'>
+ <div class='row'>
+    <div class='col-md-3'>
+     <h2>User info</h2>
+      <%= render 'info', customer: @customer %>
+     <h2>投稿フォーム</h2>
+      <%= render 'public/post_images/form', post_image: @post_image %>
+     </div>
+    <div class='col-md-8 offset-md-1'>
+     <h2>投稿一覧</h2>
+     <table class='table'>
+      <thead>
+       <tr>
+        <th>タイトル</th>
+        <th>本文</th>
+        <th>画像</th>
+       </tr>
+      </thead>
+      <tbody>
+       <% @post_images.each do |post_image| %>
+       <tr>
+       <td><%= post_image.title %></td>
+       <td><%= post_image.body %></td>
+       <td>
+        <%= link_to post_image_path(post_image.id) do %>
+        <% if post_image.image.attached? %>
+         <%= image_tag post_image.image, size: "200x200" %>
+        <% else %>
+         <%= image_tag 'no_image', size: "200x200" %>
+        <% end %>
+       <% end %>
+       </td>
+       </tr>
+       <% end %>
+      </tbody>
+     </table>
+    </div>
+ </div>
+</div>

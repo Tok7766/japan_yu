@@ -1,2 +1,9 @@
-<h1>PostImages#edit</h1>
-<p>Find me in app/views/post_images/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
+      <h1>投稿記事編集画面</h1>
+      <%= render 'form' , post_image: @post_image %>
+      <%= link_to 'Back', post_image_path, class: "back" %>
+    </div>
+  </div>
+</div>
