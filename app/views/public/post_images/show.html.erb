@@ -13,6 +13,7 @@
             <th>画像</th>
             <th>タイトル</th>
             <th>本文</th>
+            <th>いいね</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
             </td>
             <td><%= @post_image.title %></td>
             <td><%= @post_image.body %></td>
+            <td><%= render 'public/favorites/btn' , post_image: @post_image %></td>
             <td>
               <% if @post_image.customer == current_customer %>
                 <%= link_to 'Edit', edit_post_image_path(@post_image), class: "btn btn-sm btn-success" %></div>

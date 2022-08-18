@@ -1,6 +1,7 @@
+
 <div class="card-list-container py-5">
-  <h2 class="text-center">投稿一覧</h2>
-  <% @post_images.each do |post_image| %>
+  <h2 class="text-center">いいね一覧</h2>
+  <% @favorite_post_images.each do |post_image|%>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to post_image_path(post_image.id) do %>
      <% if post_image.image.attached? %>

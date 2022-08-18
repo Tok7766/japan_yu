@@ -18,12 +18,17 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get '/about' => 'homes#about' , as: 'about'
     post '/guest_sign_in' => 'homes#guest' 
 
-    resources :post_images, only: [:index, :show, :create, :edit, :update, :destroy]
+    resources :post_images, only: [:index, :show, :create, :edit, :update, :destroy] do
+     resource :favorites, only: [:create, :destroy]
+    end
     
     get '/customers/:id/unsubscribe' => 'customers#unsubscribe' , as: 'unsubscribe'
     patch '/customers/:id/withdraw' => 'customers#withdraw' , as: 'withdraw'
     
     resources :customers, only: [:show, :index, :edit, :update] do
+      member do
+      get :favorites
+      end
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings' , as: 'followings'
       get 'followers' => 'relationships#followers' , as: 'followers'

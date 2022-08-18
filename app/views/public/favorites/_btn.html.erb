@@ -1,0 +1,9 @@
+<% if post_image.favorited_by?(current_customer) %>
+  <%= link_to post_image_favorites_path(post_image.id), method: :delete do %>
+    <%= post_image.favorites.count %> いいね
+  <% end %>
+<% else %>
+  <%= link_to post_image_favorites_path(post_image.id), method: :post do %>
+    <%= post_image.favorites.count %> いいね
+  <% end %>
+<% end %>
