@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>ユーザー名</th>
+          <th>コメント</th>
+        </tr>
+      </thead>  
+      <tbody>
+      <% post_image.post_image_comments.each do |post_image_comment| %>
+      <tr>
+        <td>
+          <%= link_to customer_path(post_image_comment.customer) do %>
+            <%= image_tag post_image_comment.customer.get_profile_image, size: "100x100" %>
+          <% end %>
+        </td>
+        <td><%= post_image_comment.customer.name %></td>    
+        <td><%= post_image_comment.comment %></td>
+        <td>
+          <% if post_image_comment.customer == current_customer %>
+            <%= link_to "Destroy", post_image_post_image_comment_path(post_image, post_image_comment), method: :delete, class: "btn btn-danger pull-right" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+      </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -17,8 +17,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     root to: 'homes#top'
     get '/about' => 'homes#about' , as: 'about'
     post '/guest_sign_in' => 'homes#guest' 
+    get "search" => "searches#search"
 
     resources :post_images, only: [:index, :show, :create, :edit, :update, :destroy] do
+     resources :post_image_comments, only: [:create, :destroy]  
      resource :favorites, only: [:create, :destroy]
     end
     

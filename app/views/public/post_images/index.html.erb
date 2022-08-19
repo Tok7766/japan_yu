@@ -25,6 +25,7 @@
           <% end %>
         </div>
         <div><%= render 'public/favorites/btn' , post_image: post_image %></div>
+        <div>コメント数: <%= post_image.post_image_comments.count %></div>
       </div>
     </div>
   </div>

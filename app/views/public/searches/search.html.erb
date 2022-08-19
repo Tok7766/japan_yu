@@ -1,0 +1,22 @@
+<h2>検索結果</h2>
+
+<table class="table table-hover table-inverse">
+  <% if @range == "Customer" %>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <tbody>
+      <% @post_images.each do |post_image| %>
+        <tr>
+          <td><%= post_image.title %></td>
+          <td><%= post_image.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

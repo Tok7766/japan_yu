@@ -8,6 +8,7 @@ class Public::PostImagesController < ApplicationController
 
   def show
     @post_image = PostImage.find(params[:id])
+    @post_image_comment = current_customer.post_image_comments.new
   end
 
   def edit

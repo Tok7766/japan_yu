@@ -1,10 +1,10 @@
 <div class='container mt-3'>
   <div class='row'>
-    <div class='col-md-3'>
+    <div class='col-3'>
      <h2>User Info</h2>
      <%= render 'public/customers/info' , customer: @post_image.customer %>
     </div>
-    <div class='col-md-8 offset-md-1'>
+    <div class='col-9'>
       <h2>投稿詳細</h2>
       <table class='table'>
         <thead>
@@ -33,15 +33,19 @@
             <td><%= @post_image.title %></td>
             <td><%= @post_image.body %></td>
             <td><%= render 'public/favorites/btn' , post_image: @post_image %></td>
-            <td>
-              <% if @post_image.customer == current_customer %>
-                <%= link_to 'Edit', edit_post_image_path(@post_image), class: "btn btn-sm btn-success" %></div>
-                <%= link_to 'Destroy', @post_image, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></div>
-              <% end %>
-            </td>
+            <% if @post_image.customer == current_customer %>
+            <td><%= link_to 'Edit', edit_post_image_path(@post_image), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Destroy', @post_image, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+            <% end %>
           </tr>
         </tbody>
       </table>
+      <div id="comment_area">
+        <%= render "public/post_image_comments/index", post_image: @post_image %>
+      </div>
+      <div id="new-comment">
+        <%= render "public/post_image_comments/form", post_image: @post_image, post_image_comment: @post_image_comment %>
+      </div>
     </div>
   </div>
 </div>
