@@ -1,9 +1,9 @@
 <% if post_image.favorited_by?(current_customer) %>
   <%= link_to post_image_favorites_path(post_image.id), method: :delete do %>
-    <i class="fa-solid fa-heart"></i><%= post_image.favorites.count %>
+    いいね<%= post_image.favorites.count %>
   <% end %>
 <% else %>
   <%= link_to post_image_favorites_path(post_image.id), method: :post do %>
-    <i class="fa-solid fa-heart"></i><%= post_image.favorites.count %>
+    いいね<%= post_image.favorites.count %>
   <% end %>
 <% end %>

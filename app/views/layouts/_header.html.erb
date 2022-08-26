@@ -32,43 +32,43 @@
           <% if customer_signed_in? %>
          <li>
             <%= link_to customer_path(current_customer),class: 'nav-link text-dark' do %>
-             <i class="fa-solid fa-user"></i>マイページ
+             マイページ
             <% end %>
           </li>
           <li>
             <%= link_to customers_path, class: 'nav-link text-dark' do %>
-            <i class="fa-solid fa-users"></i>会員一覧
+            会員一覧
             <% end %>
           </li>
           <li>
             <%= link_to post_images_path, class: 'nav-link text-dark' do %>
-            <i class="fa-solid fa-image"></i>投稿一覧
+            投稿一覧
             <% end %>
           </li>
           <li>
             <%=link_to favorites_customer_path(current_customer), class: 'nav-link text-dark' do %>
-            <i class="fa-solid fa-thumbs-up"></i>いいね一覧
+            いいね一覧
             <% end %>
           </li>
           <li>
             <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-dark' do %>
-            <i class="fa-solid fa-right-from-bracket"></i>ログアウト
+            ログアウト
             <% end %>
           </li>
           <% elsif admin_signed_in? %>
           <li>
             <%= link_to admin_customers_path, class: 'nav-link text-dark' do %>
-            <i class="fa-solid fa-users"></i>会員一覧
+            会員一覧
             <% end %>
           </li>
           <li>
             <%= link_to admin_post_images_path, class: 'nav-link text-dark' do %>
-            <i class="fa-solid fa-image"></i>投稿一覧
+            投稿一覧
             <% end %>
           </li>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' do %>
-            <i class="fa-solid fa-right-from-bracket"></i>ログアウト
+            ログアウト
             <% end %>
           </li>
           <% else %>

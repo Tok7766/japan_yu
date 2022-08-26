@@ -17,6 +17,7 @@
   background-size: cover;
   height: 760px;
   background-image: url("24198720_m.jpg");
+  background-image: image-url("hoge.jpg");
 }
 
 .top{
