@@ -1,11 +1,11 @@
 <div class='container mt-3'>
   <div class='row'>
     <div class='col-md-3'>
-      <h2>User info</h2>
+      <h2>会員情報</h2>
       <%= render 'info', customer: @customer %>
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h2>ユーザー一覧</h2>
+      <h2>会員一覧</h2>
       <table class="table">
         <thead>
           <tr>
@@ -13,6 +13,7 @@
             <th>ユーザー名</th>
             <th>フォロー数</th>
             <th>フォロワー数</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -29,9 +30,9 @@
             <td>
               <% if current_customer != customer %>
                <% if current_customer.following?(customer) %>
-                <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete, class: "btn btn-info" %>
+                <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete, class: "btn btn-dark" %>
                <% else %>
-                <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post, class: "btn btn-success" %>
+                <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post, class: "btn btn-outline-dark" %>
                <% end %>
               <% end %>
             </td>

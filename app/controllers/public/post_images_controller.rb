@@ -18,8 +18,12 @@ class Public::PostImagesController < ApplicationController
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.customer_id = current_customer.id
-    @post_image.save
-    redirect_to customer_path(current_customer)
+    if @post_image.save
+     redirect_to customer_path(current_customer)
+    else
+     @post_images = PostImage.all
+     render "index"
+    end 
   end
   
   def update

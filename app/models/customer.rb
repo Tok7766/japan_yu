@@ -14,9 +14,14 @@ class Customer < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :post_image_comments, dependent: :destroy
   
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :introduction, length: { maximum: 50 }
   
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
+  end
+  def active_for_authentication?
+    super && (self.is_deleted == false)
   end
    #フォローした時の処理
   def follow(customer)

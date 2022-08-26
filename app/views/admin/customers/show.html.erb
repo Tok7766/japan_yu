@@ -1,0 +1,42 @@
+<div class='container'>
+  <div class='row justify-content-center'>
+    <div class="col-md-5">
+       <h2 class="mt-3"><%= @customer.name %>さんの会員詳細</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+    　<table class="table table-hover table-inverse">
+        <tr>
+         <td>会員ID</td>
+         <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+         <td>ユーザー名</td>
+         <td><%= @customer.name %></td>
+        </tr>
+        <tr>
+         <td>プロフィール</td>
+         <td><%= @customer.introduction %></td>
+        </tr>
+        <tr>
+         <td>メールアドレス</td>
+         <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+         <td>会員ステータス</td>
+         <% if @customer.is_deleted == false %>
+          <td>有効</td>
+         <% else %>
+          <td>退会</td>
+         <% end %>
+        </tr>
+    　</table>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+   <div>
+    <%= link_to "編集する", edit_admin_customer_path(@customer) , class: "btn btn-dark" %>
+   </div>
+  </div>
+</div>

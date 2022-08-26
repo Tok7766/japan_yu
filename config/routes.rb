@@ -35,5 +35,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       get 'followings' => 'relationships#followings' , as: 'followings'
       get 'followers' => 'relationships#followers' , as: 'followers'
     end  
-  end
+   end
+   
+   namespace :admin do
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :post_images, only:[:index, :show, :edit, :update, :destroy]
+   end  
 end

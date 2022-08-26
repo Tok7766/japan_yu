@@ -13,3 +13,64 @@
  *= require_tree .
  *= require_self
  */
+.mv {
+  background-size: cover;
+  height: 760px;
+  background-image: url("24198720_m.jpg");
+}
+
+.top{
+  padding: 40px 40px;
+  font-size: 50px;
+  color: white;
+  font-family: 'Noto Serif JP', serif;
+}
+
+.foot{
+  font-size: 20px;
+  font-family: 'Noto Serif JP', serif;
+}
+
+.navbar {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+.top-nav  {
+  flex-direction: column;
+}
+
+.card-list-container {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.table {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.row {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.list-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-family: 'Noto Serif JP', serif;
+}
+
+h2 {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.box {
+background: white; /*背景色の指定*/
+border: black 1px solid; /*境界線の指定*/
+border-radius: 6px; /*角丸の指定*/
+padding:10px;
+}

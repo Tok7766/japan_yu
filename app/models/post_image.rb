@@ -4,6 +4,9 @@ class PostImage < ApplicationRecord
   has_many :favorited_customers, through: :favorites, source: :customer
   has_many :post_image_comments, dependent: :destroy
   has_one_attached :image
+  
+  validates :title, presence: true
+  validates :body, presence: true,length:{maximum:200}
 
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)
