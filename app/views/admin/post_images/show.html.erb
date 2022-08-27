@@ -14,11 +14,7 @@
         <tr>
          <td>投稿画像</td>
          <td>
-            <% if @post_image.image.attached? %>
-             <%= image_tag @post_image.image, size: "200x200" %>
-            <% else %>
-             <%= image_tag 'no_image', size: "200x200" %>
-            <% end %>
+          <%= image_tag @post_image.get_image, size:'100x100' %>
          </td>
         </tr>
         <tr>
