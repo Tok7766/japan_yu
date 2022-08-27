@@ -2,18 +2,41 @@
 
 <table class="table table-hover table-inverse">
   <% if @range == "Customer" %>
+    <thead>
+      <th></th>
+      <th>会員名</th>
+      <th>自己紹介</th>
+    </thead>
     <tbody>
       <% @customers.each do |customer| %>
         <tr>
-          <td><%= customer.name %></td>
+          <td></td>
+          <td>
+            <%= link_to customer_path(customer.id) do %>
+             <%= customer.name %>
+            <% end %>
+          </td>
+          <td><%= customer.introduction %></td>
         </tr>
       <% end %>
     </tbody>
   <% else %>
+    <thead>
+     <tr>
+       <th></th>
+       <th>タイトル</th>
+       <th>本文</th>
+     </tr>
+    </thead>
     <tbody>
       <% @post_images.each do |post_image| %>
         <tr>
-          <td><%= post_image.title %></td>
+          <td></td>
+          <td>
+            <%= link_to post_image_path(post_image.id) do %>
+             <%= post_image.title %>
+            <% end %>
+          </td>
           <td><%= post_image.body %></td>
         </tr>
       <% end %>
