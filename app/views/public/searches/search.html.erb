@@ -1,13 +1,17 @@
-<h2>検索結果</h2>
 
-<table class="table table-hover table-inverse">
-  <% if @range == "Customer" %>
-    <thead>
-      <th></th>
-      <th>会員名</th>
-      <th>自己紹介</th>
-    </thead>
-    <tbody>
+<div class='container'>
+  <div class='row justify-content-center'>
+    <div class='col-md-8'>
+      <h2 class="text-center mt-3">検索結果</h2>
+
+      <table class="table table-hover table-inverse">
+      <% if @range == "Customer" %>
+      <thead>
+        <th></th>
+        <th>会員名</th>
+        <th>自己紹介</th>
+      </thead>
+      <tbody>
       <% @customers.each do |customer| %>
         <tr>
           <td></td>
@@ -19,16 +23,16 @@
           <td><%= customer.introduction %></td>
         </tr>
       <% end %>
-    </tbody>
-  <% else %>
-    <thead>
-     <tr>
+      </tbody>
+      <% else %>
+      <thead>
+      <tr>
        <th></th>
        <th>タイトル</th>
        <th>本文</th>
-     </tr>
-    </thead>
-    <tbody>
+      </tr>
+      </thead>
+      <tbody>
       <% @post_images.each do |post_image| %>
         <tr>
           <td></td>
@@ -40,6 +44,9 @@
           <td><%= post_image.body %></td>
         </tr>
       <% end %>
-    </tbody>
-  <% end %>
-</table>
+     </tbody>
+     <% end %>
+     </table>
+    </div>
+  </div>
+</div>  
