@@ -3,7 +3,7 @@
     <div class="col">
      <h2 class="mt-3">投稿一覧</h2>
     </div>
-  
+
   <table class='table table-hover table-inverse'>
   <thead>
     <tr>
@@ -20,11 +20,7 @@
        <td><%= post_image.id %></td>
        <td>
          <%= link_to admin_post_image_path(post_image.id) do %>
-          <% if post_image.image.attached? %>
-           <%= image_tag post_image.image, size: "100x100" %>
-          <% else %>
-           <%= image_tag 'no_image', size: "100x100" %>
-          <% end %>
+          <%= image_tag post_image.get_image, size:'100x100' %>
          <% end %>
        </td>
        <td><%= post_image.title %></td>
