@@ -6,11 +6,7 @@
     </div>
     <div class='col-md-6'>
       <h2>投稿詳細</h2>
-      <% if @post_image.image.attached? %>
-        <%= image_tag @post_image.image, size: "200x200" %>
-      <% else %>
-        <%= image_tag 'no_image', size: "500x400" %>
-      <% end %>        
+      <%= image_tag @post_image.get_image, size:'500x400' %>
     </div>
     <div class="col-md-3">
       <div class="mt-5">

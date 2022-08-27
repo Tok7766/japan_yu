@@ -22,12 +22,8 @@
        <td><%= post_image.title %></td>
        <td><%= post_image.body %></td>
        <td>
-        <%= link_to post_image_path(post_image.id) do %>
-        <% if post_image.image.attached? %>
-         <%= image_tag post_image.image, size: "100x100" %>
-        <% else %>
-         <%= image_tag 'no_image', size: "100x100" %>
-        <% end %>
+       <%= link_to post_image_path(post_image.id) do %>
+         <%= image_tag post_image.get_image, size:'100x100' %>
        <% end %>
        </td>
        </tr>

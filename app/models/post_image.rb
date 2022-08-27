@@ -12,6 +12,10 @@ class PostImage < ApplicationRecord
     favorites.exists?(customer_id: customer.id)
   end
   
+  def get_image
+    (image.attached?) ? image : 'no_image.jpg'
+  end 
+  
   # 検索方法分岐
   def self.looks(search, word)
     if search == "perfect_match"

@@ -2,8 +2,8 @@ class Public::CustomersController < ApplicationController
   def index
    @customers = Customer.all
    @customer = current_customer
-  end 
- 
+  end
+
   def show
    @customer = Customer.find(params[:id])
    @post_image = PostImage.new
@@ -34,7 +34,7 @@ class Public::CustomersController < ApplicationController
    flash[:notice] = "退会処理を実行いたしました"
    redirect_to root_path
   end
-  
+
   def favorites
     @customer = Customer.find(params[:id])
     favorites= Favorite.where(Customer_id: @customer.id).pluck(:post_image_id)
@@ -43,6 +43,6 @@ class Public::CustomersController < ApplicationController
 
   private
   def customer_params
-   params.require(:customer).permit(:name, :mail, :introduction, :encrypted_password, :image)
+   params.require(:customer).permit(:name, :mail, :introduction, :encrypted_password, :profile_image)
   end
 end

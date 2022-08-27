@@ -6,14 +6,9 @@
       <div class="card mb-5 shadow-sm">
         <div class="card w-100 h-100">
           <%= link_to post_image_path(post_image.id) do %>
-          <% if post_image.image.attached? %>
-           <%= image_tag post_image.image, size:'200x200', class:"card-img-top"; %>
-          <% else %>
-           <%= image_tag 'no_image', size:'200x200',class:"card-img-top"; %>
-          <% end %>
+           <%= image_tag post_image.get_image, size:'200x200', class:"card-img-top"; %>
           <% end %>
         </div>
-        
         <div class="card-body">
           <h6><%= post_image.title %></h6>
           <p><%= post_image.body %></p>
