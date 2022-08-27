@@ -1,4 +1,6 @@
 class Public::PostImagesController < ApplicationController
+  before_action :authenticate_customer!
+  
   def index
     @post_images = PostImage.all
   end

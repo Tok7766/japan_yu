@@ -67,19 +67,24 @@
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' do %>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
             ログアウト
             <% end %>
           </li>
           <% else %>
           <li>
-            <%= link_to new_customer_registration_path,class: 'nav-link text-dark' do %>
+            <%= link_to new_customer_registration_path ,class: 'nav-link text-dark' do %>
             新規登録
             <% end %>
           </li>
           <li>
             <%= link_to new_customer_session_path ,class: 'nav-link text-dark' do %>
             ログイン
+            <% end %>
+          </li>
+          <li>
+            <%= link_to homes_guest_sign_in_path ,method: :post, class: 'nav-link text-dark' do %>
+            ゲストログイン
             <% end %>
           </li>
           <% end %>

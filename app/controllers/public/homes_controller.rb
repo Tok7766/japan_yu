@@ -1,24 +1,18 @@
 class Public::HomesController < ApplicationController
+
   def top
   end
 
-  def about
-  end
-  
-  def guest
-    customer = Customer.new(customer_params)
-    customer.name = "ゲストユーザー"
-    customer.email = SecureRandom.alphanumeric(15) + "@email.com"
-    customer.introduction = "ゲストログイン中です。"
-    customer.password = SecureRandom.alphanumeric(10)
-    customer.save
-    sign_in customer
-    redirect_to root_path
-  end
-  
-  private
 
-  def customer_params
-    params.permit(:name, :email, :introduction, :password)
+  def guest_sign_in
+    customer = Customer.find_or_create_by!(email: 'guest@example.com') do |customer|
+      customer.name = "ゲスト会員"
+      customer.introduction = "ゲスト会員でログイン中です"
+      customer.password = SecureRandom.urlsafe_base64
+    end
+    sign_in customer
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
+
+
 end

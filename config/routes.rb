@@ -15,8 +15,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   
    scope module: :public do
     root to: 'homes#top'
-    get '/about' => 'homes#about' , as: 'about'
-    post '/guest_sign_in' => 'homes#guest' 
+    post '/homes/guest_sign_in', to: 'homes#guest_sign_in' 
     get "search" => "searches#search"
 
     resources :post_images, only: [:index, :show, :create, :edit, :update, :destroy] do

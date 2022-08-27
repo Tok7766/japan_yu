@@ -1,5 +1,6 @@
 class Public::PostImageCommentsController < ApplicationController
-
+  before_action :authenticate_customer!
+  
   def create
     @post_image = PostImage.find(params[:post_image_id])
     @comment = current_customer.post_image_comments.new(post_image_comment_params)
